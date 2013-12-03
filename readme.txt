@@ -4,6 +4,8 @@ Tags: json api, api, register user, wordpress user registration,
 
 Contributors: parorrey
 
+Stable tag: 0.1
+
 Requires at least: 3.0.1
 
 Tested up to: 3.7.1
@@ -33,6 +35,7 @@ To install JSON API User just follow these steps:
 
 * activate the controller through the JSON API menu found in the WordPress admin center (Settings -> JSON API)
 
+== Screenshots ==
 
 
 ==Changelog==
@@ -43,6 +46,8 @@ To install JSON API User just follow these steps:
 
 == Upgrade Notice ==
 
+= 0.1 =
+* Initial release.
 
 ==Frequently Asked Questions==
 
