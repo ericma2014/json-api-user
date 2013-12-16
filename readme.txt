@@ -1,4 +1,4 @@
-=== JSON-API-User ===
+=== JSON API User ===
 
 Tags: json api, api, register user, wordpress user registration,
 
@@ -8,7 +8,7 @@ Stable tag: 0.1
 
 Requires at least: 3.0.1
 
-Tested up to: 3.7.1
+Tested up to: 3.8
 
 License: GPLv2 or later
 
@@ -20,7 +20,7 @@ Extends the JSON API
 ==Description==
 
 
-JSON API User is a plugin that supports the JSON API Plugin with a new Controller to allow user registration.
+JSON API User is a plugin that extends the JSON API Plugin with a new Controller to allow user registration.
 
 
 ==Installation==
@@ -52,3 +52,9 @@ To install JSON API User just follow these steps:
 ==Frequently Asked Questions==
 
 For a full code documentation, please check here https://github.com/pimedia/json-api-user
+
+* There is one method available: register()
+
+* nonce can be created by calling http://your-domain/api/get_nonce/?controller=user&method=register
+
+* You can then use 'nonce' value to register user.
