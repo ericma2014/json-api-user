@@ -6,17 +6,17 @@ Tags: json api, RESTful user registration, authentication, RESTful Facebook Logi
 
 Contributors: parorrey
 
-Stable tag: 1.2
+Stable tag: 1.2.1
 
 Requires at least: 3.0.1
 
-Tested up to: 3.9.1
+Tested up to: 3.9.2
 
 License: GPLv2 or later
 
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Extends the JSON API Plugin to allow RESTful user registration, authentication and many other User Meta, BuddyPress
+Extends the JSON API Plugin to allow RESTful user registration, authentication and many other User Meta, BuddyPress functions.
 
 
 ==Description==
@@ -62,6 +62,10 @@ To install JSON API User just follow these steps:
 
 
 ==Changelog==
+
+= 1.2.1 =
+
+* removed debugging code from generate_auth_cookie 
 
 = 1.2 =
 

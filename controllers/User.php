@@ -351,7 +351,7 @@ public function generate_auth_cookie() {
 
 			$json_api->error("You must include a 'password' var in your request.");
 		}else $password	= 	$json_api->query->password;
-d($password);
+//d($password);
 
  $user = wp_authenticate($json_api->query->username, $password);
 
