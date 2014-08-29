@@ -6,7 +6,7 @@ Tags: json api, RESTful user registration, authentication, RESTful Facebook Logi
 
 Contributors: parorrey
 
-Stable tag: 1.2.1
+Stable tag: 1.2.2
 
 Requires at least: 3.0.1
 
@@ -62,6 +62,10 @@ To install JSON API User just follow these steps:
 
 
 ==Changelog==
+
+= 1.2.2 =
+
+* removed extra fields from xprofile end point for 'default' value
 
 = 1.2.1 =
 

@@ -569,7 +569,7 @@ if (function_exists('bp_is_active')) {
 			$json_api->error("You must include a 'field' var in your request. Use 'field=default' for all default fields.");
 		}
 	  elseif ($json_api->query->field=='default') {
-			$field_label='First Name,Last Name,Bio,Account Type,Gender,Age,Primary Genres,Primary Skills/Instruments,Skills Wanted,Country,City,Zipcode,Website,Intro Video';
+			$field_label='First Name, Last Name, Bio';/*you should add your own field labels here for quick viewing*/
 		}	
 		else $field_label = sanitize_text_field($json_api->query->field);	
   
