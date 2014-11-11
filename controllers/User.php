@@ -490,7 +490,16 @@ public function get_user_meta() {
   
 		  
 		if($meta_key) $data[$meta_key] = get_user_meta(  $user_id, $meta_key);
-		else $data = get_user_meta(  $user_id);
+		else {
+		// Get all user meta data for $user_id
+			$meta = get_user_meta( $user_id );
+
+			// Filter out empty meta data
+			$data = array_filter( array_map( function( $a ) {
+					return $a[0];
+					}, $meta ) );
+
+     	 }
 //d($data);
 	   return $data;
 	    
@@ -515,14 +524,18 @@ public function update_user_meta() {
 		else $meta_key = $json_api->query->meta_key;	
   
    if (!$json_api->query->meta_value) {
-			$json_api->error("You must include a 'meta_value' var in your request.");
+			$json_api->error("You must include a 'meta_value' var in your request. You may provide multiple values separated by comma for 'meta_value' var.");
 		}
 		else $meta_value = sanitize_text_field($json_api->query->meta_value);
   
-		  
-		$data['updated'] = update_user_meta(  $user_id, $meta_key, $meta_value);
-		
+  if( strpos($meta_value,',') !== false ) {
+		$meta_values = explode(",", $meta_value);
+	   $meta_values = array_map('trim',$meta_values);
 
+	   $data['updated'] = update_user_meta(  $user_id, $meta_key, $meta_values);
+	   }
+ else $data['updated'] = update_user_meta(  $user_id, $meta_key, $meta_value); 
+	   
 	   return $data;	    
 	  
 	  }

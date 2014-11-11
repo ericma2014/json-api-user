@@ -6,7 +6,7 @@ Tags: json api, RESTful user registration, authentication, RESTful Facebook Logi
 
 Contributors: parorrey
 
-Stable tag: 1.3
+Stable tag: 1.4
 
 Requires at least: 3.0.1
 
@@ -46,7 +46,11 @@ My other JSON API Auth plugin has also been integrated with this from version 1.
 
 Hope this will help some.
 
-For details: http://www.parorrey.com/solutions/json-api-user/ A pro-version of this plugin will be available shortly that will support BuddyPress Messages component, BuddyPress avatar upload and other BuddyPress related functions to integrate BuddyPress features to your mobile app via REST.
+=Pro Version - JSON API User Plus=
+
+A pro version of this plugin, JSON API User Plus, is available here http://www.parorrey.com/solutions/json-api-user-plus/ that supports BuddyPress Messages component, BuddyPress avatar upload and other BuddyPress related functions to integrate BuddyPress features in your mobile app via REST.
+
+'JSON API User Plus' includes API key which protects and restricts the endpoint calls. This key can be updated from Settings > User Plus options page. Your app must include this key with every call to get the data from REST API. Please see documentation for calling endpoints examples for 'JSON API User Plus'.
 
 ==Installation==
 
@@ -63,6 +67,10 @@ To install JSON API User just follow these steps:
 
 ==Changelog==
 
+= 1.4 =
+* Updated update_user_meta method to allow multiple values for any meta_key in array format as well as single value. Earlier, it allowed only single value per meta_key. 
+* Updated get_user_meta method to remove blank value fields and also removed the first index of array for each value. Earlier, it showed all fields and every returned value was at the first index of array.
+* A pro version of this plugin, JSON API User Plus, is available now here http://www.parorrey.com/solutions/json-api-user-plus/. Apart from additional features of BuddyPress Messages component, Pro version includes API key which protects and restricts the endpoint calls. This key can be updated from Settings > User Plus options page. Your app must include this key with every call to get the data from REST API.  
 
 = 1.3 =
 
@@ -169,9 +177,11 @@ http://localhost/api/user/delete_user_meta/?cookie=COOKIE-HERE&meta_key=KEY-HERE
 
 = Method: update_user_meta =
 
-It needs 'cookie' and 'meta_key' var and 'meta_value' to update.
+It needs 'cookie' and 'meta_key' var and 'meta_value' to update. You may send multiple values separated by comma.  
 
 http://localhost/api/user/update_user_meta/?cookie=COOKIE-HERE&meta_key=KEY-HERE&meta_value=VALUE-HERE
+
+http://localhost/api/user/update_user_meta/?cookie=COOKIE-HERE&&meta_key=KEY-HERE&meta_value=value1,value2,value3
 
 = Method: get_user_meta =
 
@@ -221,4 +231,4 @@ It needs 'cookie', 'post_id', 'content', 'comment_status' vars.
 
 http://localhost/api/user/post_comment/?cookie=COOKIE-HERE&post_id=ID&content=Comment contents here&comment_status=1
 
-For details, check here http://www.parorrey.com/solutions/json-api-user/
+For additional features, pro version plugin details check here http://www.parorrey.com/solutions/json-api-user-plus/
