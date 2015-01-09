@@ -6,11 +6,11 @@ Tags: json api, RESTful user registration, authentication, RESTful Facebook Logi
 
 Contributors: parorrey
 
-Stable tag: 1.5
+Stable tag: 1.5.1
 
 Requires at least: 3.0.1
 
-Tested up to: 4.0
+Tested up to: 4.1
 
 License: GPLv2 or later
 
@@ -66,6 +66,10 @@ To install JSON API User just follow these steps:
 
 
 ==Changelog==
+= 1.5.1 =
+
+* Fixed documentation error for generate_auth_cookie.
+
 = 1.5 =
 
 * Added the function to authenticate, allow the user (with edit rights) to use JSON API core controllers as well. Thanks `necro_txilok` for the suggestion.
@@ -178,7 +182,7 @@ http://localhost/api/user/validate_auth_cookie/?cookie=admin|43089754375034fjwfn
 
 It needs `nonce`, `username`, `password` vars. `seconds` is optional.
 
-First get the nonce: http://localhost/api/get_nonce/?controller=auth&method=generate_auth_cookie
+First get the nonce: http://localhost/api/get_nonce/?controller=user&method=generate_auth_cookie
 
 Then generate cookie: http://localhost/api/user/generate_auth_cookie/?nonce=375034fjwfn39u8&username=john&password=PASSWORD-HERE
 
