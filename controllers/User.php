@@ -55,6 +55,10 @@ public function register(){
 
 $user_pass = sanitize_text_field( $_REQUEST['user_pass'] );
 
+if ($json_api->query->seconds) 	$seconds = (int) $json_api->query->seconds;
+
+		else $seconds = 1209600;//14 days
+
 //Add usernames we don't want used
 
 $invalid_usernames = array( 'admin' );
@@ -137,7 +141,7 @@ if($user_id && $notify) wp_new_user_notification( $user_id, $user_pass );
    }
 
 	
-	$expiration = time() + apply_filters('auth_cookie_expiration', 1209600, $user_id, true);
+	$expiration = time() + apply_filters('auth_cookie_expiration', $seconds, $user_id, true);
 
 	$cookie = wp_generate_auth_cookie($user_id, $expiration, 'logged_in');
 

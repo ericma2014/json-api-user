@@ -6,7 +6,7 @@ Tags: json api, RESTful user registration, authentication, RESTful Facebook Logi
 
 Contributors: parorrey
 
-Stable tag: 1.7
+Stable tag: 1.8
 
 Requires at least: 3.0.1
 
@@ -68,6 +68,10 @@ To install JSON API User just follow these steps:
 
 
 ==Changelog==
+
+= 1.8 =
+
+* Updated `register` to allow setting up cookie for any required duration. A cookie is sent in response on registration. Just provide the `seconds` var with others to get required cookie. Default time is 14 days.
 
 = 1.7 =
 
@@ -171,7 +175,10 @@ This returns plugin version.
 
 http://localhost/api/user/register/?username=john&email=john@domain.com&nonce=8bdfeb4e16&display_name=John
 
-Optional fields: 'user_pass', 'user_nicename', 'user_url', 'nickname', 'first_name', 'last_name', 'description', 'rich_editing', 'user_registered', 'role', 'jabber', 'aim', 'yim', 'comment_shortcuts', 'admin_color', 'use_ssl', 'show_admin_bar_front'. 
+To register user & get valid cookie for 100 seconds:
+http://localhost/api/user/register/?username=john&email=john@domain.com&nonce=8bdfeb4e16&display_name=John&seconds=100
+
+Optional fields: 'user_pass', 'user_nicename', 'user_url', 'nickname', 'first_name', 'last_name', 'description', 'rich_editing', 'user_registered', 'jabber', 'aim', 'yim', 'comment_shortcuts', 'admin_color', 'use_ssl', 'show_admin_bar_front'. 
 
 Please make sure you provide valid values that these fields expect in correct format.
 
