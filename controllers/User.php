@@ -587,7 +587,7 @@ public function update_user_meta_vars() {
 		
 	if( sizeof($_REQUEST) <=1) $json_api->error("You must include one or more vars in your request to add or update as user_meta. e.g. 'name', 'website', 'skills'. You must provide multiple meta_key vars in this format: &name=Ali&website=parorrey.com&skills=php,css,js,web design. If any field has the possibility to hold more than one value for any multi-select fields or check boxes, you must provide ending comma even when it has only one value so that it could be added in correct array format to distinguish it from simple string var. e.g. &skills=php,");
 
-d($_REQUEST);
+//d($_REQUEST);
 foreach($_REQUEST as $field => $value){
 		
 	if($field=='cookie') continue;
