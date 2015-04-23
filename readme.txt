@@ -6,11 +6,11 @@ Tags: json api, RESTful user registration, authentication, RESTful Facebook Logi
 
 Contributors: parorrey
 
-Stable tag: 1.8
+Stable tag: 1.9
 
 Requires at least: 3.0.1
 
-Tested up to: 4.1.1
+Tested up to: 4.1.2
 
 License: GPLv2 or later
 
@@ -68,6 +68,10 @@ To install JSON API User just follow these steps:
 
 
 ==Changelog==
+
+= 1.9 =
+
+* Added `update_user_meta_vars` to allow updating more than 1 meta_key variable at a time to cut down on multiple http requests.
 
 = 1.8 =
 
@@ -231,6 +235,17 @@ It needs 'cookie' and 'meta_key' var and 'meta_value' to update. You may send mu
 http://localhost/api/user/update_user_meta/?cookie=COOKIE-HERE&meta_key=KEY-HERE&meta_value=VALUE-HERE
 
 http://localhost/api/user/update_user_meta/?cookie=COOKIE-HERE&&meta_key=KEY-HERE&meta_value=value1,value2,value3
+
+= Method: update_user_meta_vars =
+
+It needs 'cookie' and any user meta variables. This endpoint allows you cut http requests if you have to add/update more than one user_meta field at a time.
+
+http://localhost/api/user/update_user_meta_vars/?cookie=COOKIE-HERE&website=user-website.com&city=Chicago&country=USA&skills=php,css,js,web design
+
+in the above call, website, city, country and skills are meta_key for WordPress user_meta. It is different from BuddyPress xProfile fields.
+
+Please make sure you provide ending comma for all those fields which have multiple values. e.g. If 'skills' field has multiple values, pass them like 
+http://localhost/api/user/update_user_meta_vars/?cookie=COOKIE-HERE&skills=PHP,MySQL, or &skills=PHP, make sure you always pass ending comma for multi-select fields to be added in array format.
 
 = Method: get_user_meta =
 

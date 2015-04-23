@@ -570,6 +570,47 @@ public function delete_user_meta() {
 	  
 	  }
 	  
+public function update_user_meta_vars() {
+	 
+	  global $json_api;	
+
+	  if (!$json_api->query->cookie) {
+			$json_api->error("You must include a 'cookie' var in your request. Use the `generate_auth_cookie` method.");
+		}
+
+		$user_id = wp_validate_auth_cookie($json_api->query->cookie, 'logged_in');
+//	echo '$user_id: '.$user_id;	
+	
+		if (!$user_id) {
+			$json_api->error("Invalid cookie. Use the `generate_auth_cookie` method.");
+		}
+		
+	if( sizeof($_REQUEST) <=1) $json_api->error("You must include one or more vars in your request to add or update as user_meta. e.g. 'name', 'website', 'skills'. You must provide multiple meta_key vars in this format: &name=Ali&website=parorrey.com&skills=php,css,js,web design. If any field has the possibility to hold more than one value for any multi-select fields or check boxes, you must provide ending comma even when it has only one value so that it could be added in correct array format to distinguish it from simple string var. e.g. &skills=php,");
+
+d($_REQUEST);
+foreach($_REQUEST as $field => $value){
+		
+	if($field=='cookie') continue;
+	
+	$field_label = str_replace('_',' ',$field);
+	
+	if( strpos($value,',') !== false ) {
+		$values = explode(",", $value);
+	   $values = array_map('trim',$values);
+	   }
+	else $values = trim($value);
+	//echo 'field-values: '.$field.'=>'.$value;
+	//d($values);
+
+   $result[$field_label]['updated'] =  update_user_meta(  $user_id, $field, $values);
+ 
+}
+
+	 return $result;
+   
+
+  }	  
+	  
 public function xprofile() {
 	 
 	  global $json_api;
